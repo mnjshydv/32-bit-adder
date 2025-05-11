@@ -1,2 +1,10 @@
-# 32-bit-adder
-32 bit adder 
+32-bit Adder in Verilog
+This repository contains the Verilog implementation of a 32-bit binary adder along with its corresponding testbench. The primary objective of this project is to design a synthesizable 32-bit ripple carry adder that takes two 32-bit binary numbers and a carry-in bit as input and produces a 32-bit sum along with a carry-out bit. The design is written in a modular and readable style to facilitate ease of understanding and reuse in larger digital systems.
+
+The RTL design is found in the adder_32.v file, which defines the structural logic of the 32-bit adder. It takes three inputs: a, b, and cin, and produces two outputs: sum and cout. Internally, the design uses a ripple carry approach, chaining together individual 1-bit full adders to process the entire 32-bit input. The logic is kept simple and efficient, making it suitable for synthesis using standard EDA tools.
+
+The adder32_tb.v file serves as the testbench for this design. It applies multiple sets of input vectors to the adder module and verifies whether the output matches the expected results. The testbench is self-checking, meaning it includes logic to compare the calculated outputs with reference values and prints messages indicating whether each test has passed or failed. This helps ensure that the adder performs correctly under a wide range of input conditions, including edge cases like overflow and all-zero inputs.
+
+To simulate this project, any standard Verilog simulator can be used. For instance, using Icarus Verilog, the user can compile the files with the command iverilog -o adder_test adder_32.v adder32_tb.v and then run the simulation using vvp adder_test. For users of ModelSim or QuestaSim, the files can be compiled with vlog and simulated with vsim, followed by running the simulation using the run -all command.
+
+This project provides a simple yet effective demonstration of a basic arithmetic unit in digital design. It can be extended or integrated into larger arithmetic logic units (ALUs) or CPU datapaths. The entire codebase is open-source and licensed under the MIT License, allowing for free usage and modification in educational or professional projects.
